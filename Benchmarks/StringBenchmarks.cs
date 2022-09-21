@@ -4,31 +4,31 @@ namespace PerformanceBenchmark.Benchmarks
 {
     public class StringBenchmarks
     {
-        public string nomeV1 = "Everton";
-        public string nomeV2 = "everton";
+        public string uppercaseName = "EVERTON";
+        public string lowercaseName = "everton";
 
         [Benchmark]
         public bool IgualdadeComToLower()
         {
-            return nomeV1.ToLower() == nomeV2.ToLower();
+            return uppercaseName.ToLower() == lowercaseName.ToLower();
         }
 
         [Benchmark]
         public bool IgualdadeComToUpper()
         {
-            return nomeV1.ToUpper() == nomeV2.ToUpper();
+            return uppercaseName.ToUpper() == lowercaseName.ToUpper();
         }
 
         [Benchmark]
         public bool CompareComIgnoreCase()
         {
-            return string.Compare(nomeV1, nomeV2, StringComparison.OrdinalIgnoreCase) == 0;
+            return string.Compare(uppercaseName, lowercaseName, StringComparison.OrdinalIgnoreCase) == 0;
         }
 
         [Benchmark]
         public bool EqualsIgnoreCase()
         {
-            return nomeV1.Equals(nomeV2, StringComparison.OrdinalIgnoreCase);
+            return uppercaseName.Equals(lowercaseName, StringComparison.OrdinalIgnoreCase);
         }
     }
 }
